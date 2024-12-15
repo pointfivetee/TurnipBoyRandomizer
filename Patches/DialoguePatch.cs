@@ -39,7 +39,7 @@ class DialoguePatch
     {
         if (Plugin.EnableRandomization)
         {
-            if (Singleton<ReadWriteSaveManager>.Instance.GetData("quest_main_step_1_completed", false))
+            if (Singleton<ReadWriteSaveManager>.Instance.GetData("quest_main_step_2_completed", false))
             {
                 Plugin.ArchipelagoClient.SetGoalAchieved();
             }

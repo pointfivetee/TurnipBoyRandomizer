@@ -42,6 +42,7 @@ public class Plugin : BaseUnityPlugin
         {"key_sub", "Layer Lane - Sandwich Stall"},
         {"key_wood", "Layer Lane - Shady Blueberry"},
         {"key_hammer", "Layer Lane - Shady Carrot"},
+        {"key_estate", "Layer Lane - Invest in Real Estate"},
         // Bustling Barn
         {"hat_crown", "Bustling Barn - slayQueen32 Reward"},
         {"key_boots", "Bustling Barn - Boom Boots Room"},
@@ -60,6 +61,15 @@ public class Plugin : BaseUnityPlugin
         // Idle Icebox
         {"active_fork", "Idle Icebox - Deb Reward"},
         {"hat_fedora", "Idle Icebox - Pickled Gang Reward"},
+        // Rocky Ramp
+        {"key_phone", "Rocky Ramp - Bottom of Cliff"},
+        // Forgotten Forest
+        {"key_doodle", "Forgotten Forest - Mural Cave"},
+        {"key_turnip", "Forgotten Forest - Turnip(?) Field"},
+        {"active_petalportal", "Forgotten Forest - Petalportal Cave"},
+        {"key_goop", "Forgotten Forest - Past the Stag"},
+        {"hat_explorer", "Forgotten Forest - Annie Reward"},
+        {"key_leaf", "Forgotten Forest - Acorn's Down Payment"},
     };
 
     private void Awake()
