@@ -27,7 +27,7 @@ class CollisionPatch
         {"key_fertilizer", "Bustling Barn - Past The King Pig"},
     };
 
-    static bool enablePatch = true;
+    static bool enablePatch = false;
 
     static bool Prefix(UnityEngine.Collider2D _collider2D, PlayerController __instance)
     {
@@ -43,12 +43,13 @@ class CollisionPatch
                     ArchipelagoConsole.LogMessage("Item Collision! " + itemObject.GetName() + " " + itemId);
                     if (itemIdToLocation.ContainsKey(itemId))
                     {
-                        // We still need to destroy the item
+                        // Destroy the item
                         component.Pickup();
+                        // Set the item's "picked up" flag to true (if unique)
+                        itemObject.Pickup();
                         // Report the location as collected and skip the default trigger
                         ArchipelagoConsole.LogMessage("Reporting collection of " + itemIdToLocation[itemId]);
                         Plugin.ArchipelagoClient.CollectFrom(itemIdToLocation[itemId]);
-                        // TODO: The item that was originally here needs to be flagged as picked up, so it won't respawn
 
                         return false;
                     }

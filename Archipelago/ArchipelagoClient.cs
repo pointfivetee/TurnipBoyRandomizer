@@ -159,9 +159,14 @@ public class ArchipelagoClient
         var playerController = playerManager.GetConnectedPlayer();
         var itemObjectList = playerManager.GetItems();
         var itemObject = Array.Find(itemObjectList, item => item.GetName() == receivedItem.ItemName);
+        var oldFlag = Singleton<ReadWriteSaveManager>.Instance.GetData("item_" + itemObject.Index + "_picked_up", false);
         playerController.PickupItem(itemObject);
 
-        // TODO: Manually set the "picked up" flag to handle whether unique items can spawn?
+        // Reset the pickup flag to its original value
+        if (itemObject.OnlyOne)
+        {
+            Singleton<ReadWriteSaveManager>.Instance.SetData("item_" + itemObject.Index + "_picked_up", true, false);
+        }
     }
 
     /// <summary>
