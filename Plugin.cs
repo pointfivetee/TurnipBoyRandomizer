@@ -2,6 +2,7 @@
 using BepInEx.Logging;
 using BepInEx5ArchipelagoPluginTemplate.templates.Archipelago;
 using BepInEx5ArchipelagoPluginTemplate.templates.Utils;
+using HarmonyLib;
 using UnityEngine;
 
 namespace BepInEx5ArchipelagoPluginTemplate.templates;
@@ -26,6 +27,10 @@ public class Plugin : BaseUnityPlugin
         ArchipelagoConsole.Awake();
 
         ArchipelagoConsole.LogMessage($"{ModDisplayInfo} loaded!");
+
+        // TODO: Fix GUID
+        var harmony = new Harmony("foo.bar");
+        harmony.PatchAll();
     }
 
     private void OnGUI()
