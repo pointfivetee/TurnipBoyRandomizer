@@ -32,17 +32,4 @@ class DialoguePatch
         // Proceed normally
         return true;
     }
-
-    // Goal detection
-    // For now, the goal is to deliver the laser pointer to Mayor Onion
-    static void Postfix(DialoguePopupController __instance)
-    {
-        if (Plugin.EnableRandomization)
-        {
-            if (Singleton<ReadWriteSaveManager>.Instance.GetData("quest_main_step_3_completed", false))
-            {
-                Plugin.ArchipelagoClient.SetGoalAchieved();
-            }
-        }
-    }
 }
