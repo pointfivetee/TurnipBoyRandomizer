@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using BepInEx;
 using BepInEx.Logging;
 using BepInEx5ArchipelagoPluginTemplate.templates.Archipelago;
@@ -20,7 +20,7 @@ public class Plugin : BaseUnityPlugin
     public static ManualLogSource BepinLogger;
     public static ArchipelagoClient ArchipelagoClient;
 
-    // Set to false to playtest a "vanilla" game without any item randomization or fommunitcation
+    // Set to false to playtest a "vanilla" game without any item randomization or communication
     // with the AP server. Patches that only produce logs will still run.
     public static bool EnableRandomization = true;
 

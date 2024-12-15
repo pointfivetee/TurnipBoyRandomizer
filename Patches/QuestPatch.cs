@@ -1,4 +1,5 @@
 using System.Collections;
+using BepInEx5ArchipelagoPluginTemplate.templates;
 using BepInEx5ArchipelagoPluginTemplate.templates.Utils;
 using HarmonyLib;
 
@@ -35,18 +36,21 @@ class QuestStepCompletePatch
     // Make necessary adjustments if the player sequence broke a quest
     static void Postfix(int _index, QuestNPCInteraction __instance, ref bool __result)
     {
-        // Florist quest
-        // If we've already given Strawberry the flower, it's okay if the plant hasn't been watered
-        if (__instance.name == "Blueberry NPC Variant" && _index == 0 && !__result)
+        if (Plugin.EnableRandomization)
         {
-            __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_flower_completed", false);
-        }
+            // Florist quest
+            // If we've already given Strawberry the flower, it's okay if the plant hasn't been watered
+            if (__instance.name == "Blueberry NPC Variant" && _index == 0 && !__result)
+            {
+                __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_flower_completed", false);
+            }
 
-        // Belch quest
-        // If we've already given slayQueen32 the tier 3 sub, we can move Belch's quest along
-        if (__instance.name == "Belch NPC Variant" && _index == 0 && !__result)
-        {
-            __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_simp_step_0_completed", false);
+            // Belch quest
+            // If we've already given slayQueen32 the tier 3 sub, we can move Belch's quest along
+            if (__instance.name == "Belch NPC Variant" && _index == 0 && !__result)
+            {
+                __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_simp_step_0_completed", false);
+            }
         }
     }
 }

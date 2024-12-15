@@ -7,11 +7,14 @@ class PlantPatch
 {
     static void Prefix(PlantController __instance)
     {
-        var crop = new Traverse(__instance).Field("crop").GetValue<CropObject>();
-        var itemObject = crop.DoNotSpawnIfHaveThisItemObject;
-        if (itemObject && Plugin.ItemIdToLocation.ContainsKey(itemObject.Index))
+        if (Plugin.EnableRandomization)
         {
-            crop.DoNotSpawnIfHaveThisItemObject = null;
+            var crop = new Traverse(__instance).Field("crop").GetValue<CropObject>();
+            var itemObject = crop.DoNotSpawnIfHaveThisItemObject;
+            if (itemObject && Plugin.ItemIdToLocation.ContainsKey(itemObject.Index))
+            {
+                crop.DoNotSpawnIfHaveThisItemObject = null;
+            }
         }
     }
 }
