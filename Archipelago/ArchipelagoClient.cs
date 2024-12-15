@@ -189,6 +189,11 @@ public class ArchipelagoClient
             {
                 itemName = "Fork";
             }
+            else if (collectedCount == 2)
+            {
+                itemName = "Shovel";
+                // TODO: Take away the Soil Sword
+            }
             else
             {
                 return;

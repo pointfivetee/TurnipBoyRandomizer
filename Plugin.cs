@@ -43,6 +43,7 @@ public class Plugin : BaseUnityPlugin
         {"key_wood", "Layer Lane - Shady Blueberry"},
         {"key_hammer", "Layer Lane - Shady Carrot"},
         {"key_estate", "Layer Lane - Invest in Real Estate"},
+        {"hat_scissors", "Layer Lane - Edgar Reward"},
         // Bustling Barn
         {"hat_crown", "Bustling Barn - slayQueen32 Reward"},
         {"key_boots", "Bustling Barn - Boom Boots Room"},
@@ -61,6 +62,8 @@ public class Plugin : BaseUnityPlugin
         // Idle Icebox
         {"active_fork", "Idle Icebox - Deb Reward"},
         {"hat_fedora", "Idle Icebox - Pickled Gang Reward"},
+        {"key_pops", "Idle Icebox - Pops' Reply"},
+        {"hat_farmer", "Idle Icebox - Pops' Reward"},
         // Rocky Ramp
         {"key_phone", "Rocky Ramp - Bottom of Cliff"},
         // Forgotten Forest
@@ -70,6 +73,16 @@ public class Plugin : BaseUnityPlugin
         {"key_goop", "Forgotten Forest - Past the Stag"},
         {"hat_explorer", "Forgotten Forest - Annie Reward"},
         {"key_leaf", "Forgotten Forest - Acorn's Down Payment"},
+        // Grim Graveyard
+        {"hat_tophat", "Grim Graveyard - Graverobbing"},
+        {"active_shovel", "Grim Graveyard - Tots' Trade"},
+        {"key_tots", "Grim Graveyard - Tots' Request"},
+        {"hat_bird", "Grim Graveyard - Tots' Reward"},
+        // Bomb Bunker
+        {"key_dye", "Bomb Bunker - Bathroom"},
+        {"key_laser", "Bomb Bunker - Grum's Room"},
+        {"active_pizza", "Bomb Bunker - Raid the Fridge"},
+        {"key_hazmat", "Bomb Bunker - Bedroom 2 Item"},
     };
 
     private void Awake()
