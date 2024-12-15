@@ -51,6 +51,12 @@ public class ArchipelagoClient
         session.Locations.CompleteLocationChecks(locationId);
     }
 
+    public void SetGoalAchieved()
+    {
+        // gg!
+        session.SetGoalAchieved();
+    }
+
     /// <summary>
     /// add handlers for Archipelago events
     /// </summary>
