@@ -22,7 +22,7 @@ public class Plugin : BaseUnityPlugin
 
     // Set to false to playtest a "vanilla" game without any item randomization or communication
     // with the AP server. Patches that only produce logs will still run.
-    public static bool EnableRandomization = false;
+    public static bool EnableRandomization = true;
 
 
     // Maps in-game item ID (e.g., "active_watering") to its vanilla location name as defined in the
@@ -36,13 +36,30 @@ public class Plugin : BaseUnityPlugin
         // Weapon Woods
         {"active_sword", "Weapon Woods - Soil Sword Patch"},
         {"key_money", "Weapon Woods - Murder Jerry"},
+        {"key_stool", "Weapon Woods - Babysitter Reward"},
         // Layer Lane
         {"key_trophy", "Layer Lane - Trophy Corner"},
         {"key_sub", "Layer Lane - Sandwich Stall"},
+        {"key_wood", "Layer Lane - Shady Blueberry"},
+        {"key_hammer", "Layer Lane - Shady Carrot"},
         // Bustling Barn
         {"hat_crown", "Bustling Barn - slayQueen32 Reward"},
         {"key_boots", "Bustling Barn - Boom Boots Room"},
         {"key_fertilizer", "Bustling Barn - Past The King Pig"},
+        {"hat_hardhat", "Bustling Barn - Construction Beet Reward"},
+        // Plain Plains
+        {"key_carrot", "Plain Plains - Trash Can"},
+        // Forsaken Farmhouse
+        {"key_mask", "Forsaken Farmhouse - Donut Loot"},
+        {"key_medicine", "Forsaken Farmhouse - Behind Key Block"},
+        {"key_bandage", "Forsaken Farmhouse - Boom Boots Puzzle"},
+        {"key_mittens", "Forsaken Farmhouse - Move Mittens Room"},
+        {"key_cherry", "Forsaken Farmhouse - Cherrynapper"},
+        {"key_cat", "Forsaken Farmhouse - Boss Arena"},
+        {"key_paint", "Forsaken Farmhouse - Generator Room"},
+        // Idle Icebox
+        {"key_fork", "Idle Icebox - Deb Reward"},
+        {"hat_fedora", "Idle Icebox - Pickled Gang Reward"},
     };
 
     private void Awake()

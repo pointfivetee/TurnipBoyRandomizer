@@ -34,12 +34,12 @@ class DialoguePatch
     }
 
     // Goal detection
-    // For now, the goal is to deliver the fertilizer to Mayor Onion
+    // For now, the goal is to deliver the fork to Mayor Onion
     static void Postfix(DialoguePopupController __instance)
     {
         if (Plugin.EnableRandomization)
         {
-            if (Singleton<ReadWriteSaveManager>.Instance.GetData("quest_main_step_0_completed", false))
+            if (Singleton<ReadWriteSaveManager>.Instance.GetData("quest_main_step_1_completed", false))
             {
                 Plugin.ArchipelagoClient.SetGoalAchieved();
             }
