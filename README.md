@@ -1,0 +1,29 @@
+# Turnip Boy Commits Tax Evasion Archipelago Client
+This is a client mod for Turnip Boy Commits Tax Evasion that makes it compatible with the Archipelago Multiworld Randomizer.
+
+This mod randomizes all inventory items and hats. Keys, heart fruits, and documents are currently not randomized. The goal is to reach and defeat Corrupt Onion (normal version of the fight).
+
+## Installation
+- Must be using a PC version of Turnip Boy Commits Tax Evasion
+- Download the latest version of this mod from this link. (TODO: link)
+- Extract and copy the zip file into the root folder where Turnip Boy is located. By default it should be something like:
+`C:\Program Files\Epic Games\TurnipBoyCommitsTaxEvad` or (TODO: Steam folder?)
+	- Windows likes to place an intermediary folder when extracting zip files. Make sure that the `BepInEx` folder, `doorstop_config.ini`, and `winhttp.dll` are all located directly in the game's install folder.
+- Launch the game and close it. This will finalise the installation for BepInEx.
+- Launch the game again and you should see a new bit of UI in the top-left of the screen showing `Archipelago v0.5.0 Status: Not Connected`, as well as text fields to enter connection info.
+- To uninstall the mod, either remove/delete the `TBCTEArchipelagoPlugin` folder from the `plugins` folder, or rename the winhttp.dll file in the game's root directory (this will disable all mods from running)
+
+## Generating a Multiworld
+- In order to setup a multiworld you must first install the latest version of [Archipelago](https://github.com/ArchipelagoMW/Archipelago/releases/latest)
+	- When running the Archipelago setup exe you'll want to at least install the Generator and Text Client
+- After installing, run `Archipelago Launcher` and click on `Browse Files`. This will open the local file directory for your Archipelago installation.
+- Download the yaml template file (TODO: link). Place `TurnipBoy.yaml` inside the `Players` folder
+	- The yaml file needs to be edited before you can generate a game. Open the file and fill in your player name and choose the settings you want.
+	- You will also need to get the .yaml files for everyone who is joining your multiworld and place them inside
+- Download the latest version of the .apworld file from this link. (TODO: link)
+- Place the `turnipboy.apworld` file inside of `lib/worlds`. 
+- Once all of the .yaml files have been configured and placed into Players, click `Generate` in the Archipelago Launcher.
+- A .zip file will be created in the `output` folder containing information for your multiworld. In order to host your game, go to [https://archipelago.gg/uploads](https://archipelago.gg/uploads) and upload the .zip file, then click `Create New Room`.
+
+## Connecting to a Room
+Once you start the game with the client mod, you'll see connection info in the top left. Enter the link to your room, the room's password, and your player name. Then click Connect.
