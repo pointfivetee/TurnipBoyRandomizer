@@ -75,7 +75,7 @@ public class ArchipelagoClient
                     session.TryConnectAndLogin(
                         Game,
                         ServerData.SlotName,
-                        ItemsHandlingFlags.NoItems, // TODO make sure to change this line
+                        ItemsHandlingFlags.AllItems, // TODO make sure to change this line
                         new Version(APVersion),
                         password: ServerData.Password,
                         requestSlotData: false // ServerData.NeedSlotData
@@ -154,16 +154,14 @@ public class ArchipelagoClient
 
         ServerData.Index++;
 
-        // TODO reward the item here
-        // if items can be received while in an invalid state for actually handling them, they can be placed in a local
-        // queue to be handled later
-
         // Run a copy of the normal PickupItem() method
         var playerManager = Singleton<PlayerManager>.Instance;
         var playerController = playerManager.GetConnectedPlayer();
         var itemObjectList = playerManager.GetItems();
         var itemObject = Array.Find(itemObjectList, item => item.GetName() == receivedItem.ItemName);
         playerController.PickupItem(itemObject);
+
+        // TODO: Manually set the "picked up" flag to handle whether unique items can spawn?
     }
 
     /// <summary>

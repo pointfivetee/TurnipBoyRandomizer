@@ -33,6 +33,8 @@ class CollisionPatch
                     // Report the location as collected and skip the default trigger
                     ArchipelagoConsole.LogMessage("Reporting collection of " + itemIdToLocation[itemId]);
                     Plugin.ArchipelagoClient.CollectFrom(itemIdToLocation[itemId]);
+                    // TODO: The item that was originally here needs to be flagged as picked up, so it won't respawn
+
                     return false;
                 }
             }
