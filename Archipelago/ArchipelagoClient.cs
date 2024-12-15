@@ -53,6 +53,8 @@ public class ArchipelagoClient
         // Special case: defeating the farmhouse boss despawns that dungeon's enemies, including the
         // one that drops the lost cherry baby. To prevent a softlock, we report the cherrynapper as
         // collected along with the boss arena drop.
+        // TODO: Trigger this collection when restarting the generator, not when getting the boss
+        // drop
         if (locationName == "Forsaken Farmhouse - Boss Arena")
         {
             this.CollectFrom("Forsaken Farmhouse - Cherrynapper");
@@ -168,18 +170,51 @@ public class ArchipelagoClient
 
         ServerData.Index++;
 
-        // Run a copy of the normal PickupItem() method
+        var saveManager = Singleton<ReadWriteSaveManager>.Instance;
         var playerManager = Singleton<PlayerManager>.Instance;
         var playerController = playerManager.GetConnectedPlayer();
         var itemObjectList = playerManager.GetItems();
-        var itemObject = Array.Find(itemObjectList, item => item.GetName() == receivedItem.ItemName);
-        var oldFlag = Singleton<ReadWriteSaveManager>.Instance.GetData("item_" + itemObject.Index + "_picked_up", false);
+        var itemName = receivedItem.ItemName;
+        var apFlagName = "ap_collected_" + receivedItem.ItemName;
+        var collectedCount = saveManager.GetData(apFlagName, 0);
+
+        if (itemName == "Progressive Weapon")
+        {
+            // Determine the specific weapon item to receive
+            if (collectedCount == 0)
+            {
+                itemName = "Soil Sword";
+            }
+            else if (collectedCount == 1)
+            {
+                itemName = "Fork";
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            // For all other items, we can only collect 1
+            if (collectedCount > 0)
+            {
+                return;
+            }
+        }
+
+        // Run the usual PickupItem() method
+        var itemObject = Array.Find(itemObjectList, item => item.GetName() == itemName);
+        var oldPickupFlag = saveManager.GetData("item_" + itemObject.Index + "_picked_up", false);
         playerController.PickupItem(itemObject);
 
-        // Reset the pickup flag to its original value
+        // Increment our own counter
+        saveManager.SetData(apFlagName, collectedCount + 1, false);
+
+        // Reset the the game's pickup flag to its original value
         if (itemObject.OnlyOne)
         {
-            Singleton<ReadWriteSaveManager>.Instance.SetData("item_" + itemObject.Index + "_picked_up", oldFlag, false);
+            saveManager.SetData("item_" + itemObject.Index + "_picked_up", oldPickupFlag, false);
         }
     }
 
