@@ -33,6 +33,8 @@ public class Plugin : BaseUnityPlugin
         {"active_watering", "Veggieville - Steal From Lemon"},
         {"key_flower", "Veggieville - Water Florist's Flower"},
         {"hat_sunhat", "Veggieville - Florist Reward"},
+        {"hat_dlc", "Veggieville - Mailbox (Free Item)"},
+        {"hat_cat", "Veggieville - Mailbox (Lost Cat Reward)"},
         // Weapon Woods
         {"active_sword", "Weapon Woods - Soil Sword Patch"},
         {"key_money", "Weapon Woods - Murder Jerry"},
