@@ -41,5 +41,12 @@ class QuestStepCompletePatch
         {
             __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_flower_completed", false);
         }
+
+        // Belch quest
+        // If we've already given slayQueen32 the tier 3 sub, we can move Belch's quest along
+        if (__instance.name == "Belch NPC Variant" && _index == 0 && !__result)
+        {
+            __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_simp_step_0_completed", false);
+        }
     }
 }
