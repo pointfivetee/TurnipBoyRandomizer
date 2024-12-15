@@ -216,7 +216,9 @@ public class ArchipelagoClient
             else if (localCollectedCount == 2)
             {
                 itemName = "Shovel";
-                // TODO: Take away the Soil Sword
+                // Take away the Soil Sword
+                var soilSword = Array.Find(itemObjectList, item => item.GetName() == "Soil Sword");
+                playerManager.InventoryRemoveItem(soilSword);
             }
             else
             {
