@@ -165,7 +165,7 @@ public class ArchipelagoClient
         // Reset the pickup flag to its original value
         if (itemObject.OnlyOne)
         {
-            Singleton<ReadWriteSaveManager>.Instance.SetData("item_" + itemObject.Index + "_picked_up", true, false);
+            Singleton<ReadWriteSaveManager>.Instance.SetData("item_" + itemObject.Index + "_picked_up", oldFlag, false);
         }
     }
 
