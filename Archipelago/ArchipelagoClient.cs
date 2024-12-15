@@ -49,6 +49,14 @@ public class ArchipelagoClient
         long locationId = session.Locations.GetLocationIdFromName(session.ConnectionInfo.Game, locationName);
         ArchipelagoConsole.LogMessage("Collecting from location " + locationId);
         session.Locations.CompleteLocationChecks(locationId);
+
+        // Special case: defeating the farmhouse boss despawns that dungeon's enemies, including the
+        // one that drops the lost cherry baby. To prevent a softlock, we report the cherrynapper as
+        // collected along with the boss arena drop.
+        if (locationName == "Forsaken Farmhouse - Boss Arena")
+        {
+            this.CollectFrom("Forsaken Farmhouse - Cherrynapper");
+        }
     }
 
     public void SetGoalAchieved()
