@@ -157,6 +157,13 @@ public class ArchipelagoClient
         // TODO reward the item here
         // if items can be received while in an invalid state for actually handling them, they can be placed in a local
         // queue to be handled later
+
+        // Run a copy of the normal PickupItem() method
+        var playerManager = Singleton<PlayerManager>.Instance;
+        var playerController = playerManager.GetConnectedPlayer();
+        var itemObjectList = playerManager.GetItems();
+        var itemObject = Array.Find(itemObjectList, item => item.GetName() == receivedItem.ItemName);
+        playerController.PickupItem(itemObject);
     }
 
     /// <summary>
