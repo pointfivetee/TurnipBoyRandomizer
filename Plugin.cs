@@ -58,7 +58,7 @@ public class Plugin : BaseUnityPlugin
         {"key_cat", "Forsaken Farmhouse - Boss Arena"},
         {"key_paint", "Forsaken Farmhouse - Generator Room"},
         // Idle Icebox
-        {"key_fork", "Idle Icebox - Deb Reward"},
+        {"active_fork", "Idle Icebox - Deb Reward"},
         {"hat_fedora", "Idle Icebox - Pickled Gang Reward"},
     };
 
