@@ -46,7 +46,7 @@ public class Plugin : BaseUnityPlugin
         {"hat_crown", "Bustling Barn - slayQueen32 Reward"},
         {"key_boots", "Bustling Barn - Boom Boots Room"},
         {"key_fertilizer", "Bustling Barn - Past The King Pig"},
-        {"hat_hardhat", "Bustling Barn - Construction Beet Reward"},
+        {"hat_hardhat", "Bustling Barn - Bald Beet Reward"},
         // Plain Plains
         {"key_carrot", "Plain Plains - Trash Can"},
         // Forsaken Farmhouse
