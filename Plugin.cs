@@ -1,4 +1,5 @@
-﻿using BepInEx;
+﻿using System.Collections.Generic;
+using BepInEx;
 using BepInEx.Logging;
 using BepInEx5ArchipelagoPluginTemplate.templates.Archipelago;
 using BepInEx5ArchipelagoPluginTemplate.templates.Utils;
@@ -22,6 +23,26 @@ public class Plugin : BaseUnityPlugin
     // Set to false to playtest a "vanilla" game without any item randomization or fommunitcation
     // with the AP server. Patches that only produce logs will still run.
     public static bool EnableRandomization = true;
+
+    
+    // Maps in-game item ID (e.g., "active_watering") to its vanilla location name as defined in the
+    // apworld (e.g, "Veggieville - Steal From Lemon").
+    public static Dictionary<string, string> ItemIdToLocation = new()
+    {
+        // Veggieville
+        {"active_watering", "Veggieville - Steal From Lemon"},
+        {"key_flower", "Veggieville - Water Florist's Flower"},
+        // Weapon Woods
+        {"active_sword", "Weapon Woods - Soil Sword Patch"},
+        {"key_money", "Weapon Woods - Murder Jerry"},
+        // Layer Lane
+        {"key_trophy", "Layer Lane - Trophy Corner"},
+        {"key_sub", "Layer Lane - Sandwich Stall"},
+        // Bustling Barn
+        {"hat_crown", "Bustling Barn - slayQueen32 Reward"},
+        {"key_boots", "Bustling Barn - Boom Boots Room"},
+        {"key_fertilizer", "Bustling Barn - Past The King Pig"},
+    };
 
     private void Awake()
     {
