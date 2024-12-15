@@ -28,10 +28,21 @@ class QuestStepCompletePatch
         var neededIdentifier = currentStep.Field("NeededIdentifier").GetValue<string>();
         if (neededIdentifier != "")
         {
-            ArchipelagoConsole.LogMessage("required identifier: " +neededIdentifier);
+            ArchipelagoConsole.LogMessage("required identifier: " + neededIdentifier);
         }
 
         // Proceed normally
         return true;
+    }
+
+    // Make necessary adjustments if the player sequence broke a quest
+    static void Postfix(int _index, QuestNPCInteraction __instance, ref bool __result)
+    {
+        // Florist quest
+        // If we've already given Strawberry the flower, it's okay if the plant hasn't been watered
+        if (__instance.name == "Blueberry NPC Variant" && _index == 0 && !__result)
+        {
+            __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_flower_completed", false);
+        }
     }
 }
