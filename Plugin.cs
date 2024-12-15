@@ -19,6 +19,10 @@ public class Plugin : BaseUnityPlugin
     public static ManualLogSource BepinLogger;
     public static ArchipelagoClient ArchipelagoClient;
 
+    // Set to false to playtest a "vanilla" game without any item randomization or fommunitcation
+    // with the AP server. Patches that only produce logs will still run.
+    public static bool EnableRandomization = true;
+
     private void Awake()
     {
         // Plugin startup logic

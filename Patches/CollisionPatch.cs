@@ -27,11 +27,9 @@ class CollisionPatch
         {"key_fertilizer", "Bustling Barn - Past The King Pig"},
     };
 
-    static bool enablePatch = false;
-
     static bool Prefix(UnityEngine.Collider2D _collider2D, PlayerController __instance)
     {
-        if (enablePatch)
+        if (Plugin.EnableRandomization)
         {
             if (__instance.CanMove() && _collider2D.gameObject.CompareTag("Item"))
             {
