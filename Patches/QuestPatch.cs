@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using BepInEx5ArchipelagoPluginTemplate.templates;
 using BepInEx5ArchipelagoPluginTemplate.templates.Utils;
 using HarmonyLib;
 
