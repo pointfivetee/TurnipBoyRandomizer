@@ -58,6 +58,13 @@ class QuestStepCompletePatch
             {
                 __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_wood_completed", false);
             }
+
+            // Shady Carrot quest
+            // If we've already given the Pickled Gang the hammer, we can move along
+            if (__instance.name == "Shady Carrot NPC Variant" && _index == 0 && !__result)
+            {
+                __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_jail_completed", false);
+            }
         }
     }
 }
