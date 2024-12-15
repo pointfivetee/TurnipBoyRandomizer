@@ -5,7 +5,7 @@ using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
-using Archipelago.MultiClient.Net.MessageLog.Messages;
+using Archipelago.MultiClient.Net.Models;
 using Archipelago.MultiClient.Net.Packets;
 using BepInEx5ArchipelagoPluginTemplate.templates.Utils;
 
@@ -157,6 +157,21 @@ public class ArchipelagoClient
         session.Socket.SendPacketAsync(new SayPacket { Text = message });
     }
 
+    // Get the total number of items matching itemName that have been collected according to the
+    // current AP world state.
+    private int GetItemCount(string itemName)
+    {
+        var count = 0;
+        foreach(ItemInfo item in session.Items.AllItemsReceived)
+        {
+            if (item.ItemName == itemName)
+            {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
     /// <summary>
     /// we received an item so reward it here
     /// </summary>
@@ -176,33 +191,34 @@ public class ArchipelagoClient
         var itemObjectList = playerManager.GetItems();
         var itemName = receivedItem.ItemName;
         var apFlagName = "ap_collected_" + receivedItem.ItemName;
-        var collectedCount = saveManager.GetData(apFlagName, 0);
+        // The number of items of this type that we marked as collected locally
+        var localCollectedCount = saveManager.GetData(apFlagName, 0);
+        // The number of items of this type that have been collected according to the AP server
+        var serverCollectedCount = GetItemCount(itemName);
+
+        if (localCollectedCount >= serverCollectedCount)
+        {
+            // We've already awarded the player enough items of this type
+            return;
+        }
 
         if (itemName == "Progressive Weapon")
         {
             // Determine the specific weapon item to receive
-            if (collectedCount == 0)
+            if (localCollectedCount == 0)
             {
                 itemName = "Soil Sword";
             }
-            else if (collectedCount == 1)
+            else if (localCollectedCount == 1)
             {
                 itemName = "Fork";
             }
-            else if (collectedCount == 2)
+            else if (localCollectedCount == 2)
             {
                 itemName = "Shovel";
                 // TODO: Take away the Soil Sword
             }
             else
-            {
-                return;
-            }
-        }
-        else
-        {
-            // For all other items, we can only collect 1
-            if (collectedCount > 0)
             {
                 return;
             }
@@ -214,7 +230,7 @@ public class ArchipelagoClient
         playerController.PickupItem(itemObject);
 
         // Increment our own counter
-        saveManager.SetData(apFlagName, collectedCount + 1, false);
+        saveManager.SetData(apFlagName, localCollectedCount + 1, false);
 
         // Reset the the game's pickup flag to its original value
         if (itemObject.OnlyOne)
