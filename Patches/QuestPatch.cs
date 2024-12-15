@@ -51,6 +51,13 @@ class QuestStepCompletePatch
             {
                 __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_simp_step_0_completed", false);
             }
+
+            // Shady Blueberry quest
+            // If we've already given Bald Beet the wood, we can move along
+            if (__instance.name == "Shady Blueberry NPC Variant" && _index == 0 && !__result)
+            {
+                __result = Singleton<ReadWriteSaveManager>.Instance.GetData("quest_wood_completed", false);
+            }
         }
     }
 }
