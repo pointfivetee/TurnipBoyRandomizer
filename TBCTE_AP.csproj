@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>BepInEx5ArchipelagoPluginTemplate</AssemblyName>
-        <Description>Example Archipelago Plugin</Description>
+        <AssemblyName>TBCTEArchipelagoPlugin</AssemblyName>
+        <Description>Turnip Boy Commits Tax Evasion Archipelago Plugin</Description>
         <Version>1.0.0</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
