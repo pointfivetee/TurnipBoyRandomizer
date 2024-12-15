@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BepInEx5ArchipelagoPluginTemplate.templates;
 using BepInEx5ArchipelagoPluginTemplate.templates.Utils;
 using HarmonyLib;
 
@@ -23,6 +24,7 @@ class PickupPatch
             // Report the location as collected and skip the default pickup code
             ArchipelagoConsole.LogMessage("Reporting collection of " + itemIdToLocation[itemId]);
             // TODO: Notify the multiclient
+            Plugin.ArchipelagoClient.CollectFrom(itemIdToLocation[itemId]);
             return false;
         }
         // Not a location tracked by Archipelago - proceed normally

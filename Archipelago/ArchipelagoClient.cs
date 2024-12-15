@@ -44,6 +44,13 @@ public class ArchipelagoClient
         TryConnect();
     }
 
+    public void CollectFrom(string locationName)
+    {
+        long locationId = session.Locations.GetLocationIdFromName(session.ConnectionInfo.Game, locationName);
+        ArchipelagoConsole.LogMessage("Collecting from location " + locationId);
+        session.Locations.CompleteLocationChecks(locationId);
+    }
+
     /// <summary>
     /// add handlers for Archipelago events
     /// </summary>
@@ -141,6 +148,7 @@ public class ArchipelagoClient
     private void OnItemReceived(ReceivedItemsHelper helper)
     {
         var receivedItem = helper.DequeueItem();
+        ArchipelagoConsole.LogMessage("Received item " + receivedItem.ItemName);
 
         if (helper.Index < ServerData.Index) return;
 
