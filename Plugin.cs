@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BepInEx;
 using BepInEx.Logging;
 using BepInEx5ArchipelagoPluginTemplate.templates.Archipelago;
@@ -22,9 +22,9 @@ public class Plugin : BaseUnityPlugin
 
     // Set to false to playtest a "vanilla" game without any item randomization or communication
     // with the AP server. Patches that only produce logs will still run.
-    public static bool EnableRandomization = true;
+    public static bool EnableRandomization = false;
 
-    
+
     // Maps in-game item ID (e.g., "active_watering") to its vanilla location name as defined in the
     // apworld (e.g, "Veggieville - Steal From Lemon").
     public static Dictionary<string, string> ItemIdToLocation = new()
@@ -101,6 +101,13 @@ public class Plugin : BaseUnityPlugin
                 ArchipelagoClient.Connect();
             }
         }
-        // this is a good place to create and add a bunch of debug buttons
+
+        // shift-R shortcut to die (to prevent potential softlocks)
+        if (Event.current.Equals(Event.KeyboardEvent("#R")))
+        {
+            var playerManager = Singleton<PlayerManager>.Instance;
+            var playerController = playerManager.GetConnectedPlayer();
+            playerController.Die();
+        }
     }
 }
