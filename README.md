@@ -3,6 +3,8 @@ This is a client mod for Turnip Boy Commits Tax Evasion that makes it compatible
 
 This mod randomizes all inventory items and hats. Keys, heart fruits, and documents are currently not randomized. The goal is to reach and defeat Corrupt Onion (normal version of the fight).
 
+NOTE: You can use shift-R to die on command and respawn at the entrance to your current area or in front of your greenhouse, depending on your current location. In addition to being a time-saver, this may be necessary to prevent a soft-lock in certain situations. For instance, collecting the check from the mural cave does not currently unlock the door behind you, so the only escape is death.
+
 ## Installation
 - Must be using a PC version of Turnip Boy Commits Tax Evasion
 - [Download the latest version of this mod](https://github.com/pointfivetee/TurnipBoyRandomizer/releases/latest/download/turnip_boy_mod.zip).
