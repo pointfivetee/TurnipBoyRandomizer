@@ -226,18 +226,25 @@ public class ArchipelagoClient
             }
         }
 
-        // Run the usual PickupItem() method
         var itemObject = Array.Find(itemObjectList, item => item.GetName() == itemName);
         var oldPickupFlag = saveManager.GetData("item_" + itemObject.Index + "_picked_up", false);
-        playerController.PickupItem(itemObject);
-
-        // Increment our own counter
-        saveManager.SetData(apFlagName, localCollectedCount + 1, false);
-
-        // Reset the the game's pickup flag to its original value
-        if (itemObject.OnlyOne)
+        try
         {
-            saveManager.SetData("item_" + itemObject.Index + "_picked_up", oldPickupFlag, false);
+            // Run the usual PickupItem() method
+            playerController.PickupItem(itemObject);
+
+            // Increment our own counter
+            saveManager.SetData(apFlagName, localCollectedCount + 1, false);
+        }
+        catch (Exception e)
+        {
+            Plugin.BepinLogger.LogError(e);
+            // Sometimes PickupItem() throws an error partway through. We need to make sure the
+            // pickup flag is reset to its original value no matter what.
+            if (itemObject.OnlyOne)
+            {
+                saveManager.SetData("item_" + itemObject.Index + "_picked_up", oldPickupFlag, false);
+            }
         }
     }
 
