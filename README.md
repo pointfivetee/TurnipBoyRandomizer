@@ -3,13 +3,15 @@ This is a client mod for Turnip Boy Commits Tax Evasion that makes it compatible
 
 This mod randomizes all inventory items and hats. Keys, heart fruits, and documents are currently not randomized. The goal is to reach and defeat Corrupt Onion (normal version of the fight).
 
-NOTE: You can use shift-R to die on command and respawn at the entrance to your current area or in front of your greenhouse, depending on your current location. In addition to being a time-saver, this may be necessary to prevent a soft-lock in certain situations. For instance, collecting the check from the mural cave does not currently unlock the door behind you, so the only escape is death.
+# Tips
+- You can use shift-R to die on command and respawn at the entrance to your current area or in front of your greenhouse, depending on your current location. In addition to being a time-saver, this may be necessary to prevent a soft-lock in certain situations. For instance, collecting the check from the mural cave does not currently unlock the door behind you, so the only escape is death.
+- The client works best if you connect to the server after you start or continue a game, rather than on the main menu. Also, if your items have gotten out of sync, try quitting and restarting the game, selecting Continue, and then reconnecting.
 
 ## Installation
 - Must be using a PC version of Turnip Boy Commits Tax Evasion
 - [Download the latest version of this mod](https://github.com/pointfivetee/TurnipBoyRandomizer/releases/latest/download/turnip_boy_mod.zip).
 - Extract and copy the zip file into the root folder where Turnip Boy is located. By default it should be something like:
-`C:\Program Files\Epic Games\TurnipBoyCommitsTaxEvad` or (TODO: Steam folder?)
+`C:\Program Files\Epic Games\TurnipBoyCommitsTaxEvad` or `C:\SteamLibrary\steamapps\common\Turnip Boy Commits Tax Evasion`
 	- Windows likes to place an intermediary folder when extracting zip files. Make sure that the `BepInEx` folder, `doorstop_config.ini`, and `winhttp.dll` are all located directly in the game's install folder.
 - Launch the game and close it. This will finalize the installation for BepInEx.
 - Launch the game again and you should see a new bit of UI in the top-left of the screen showing `Archipelago v0.5.0 Status: Not Connected`, as well as text fields to enter connection info.
