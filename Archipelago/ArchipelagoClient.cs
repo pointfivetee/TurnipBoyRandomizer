@@ -239,12 +239,10 @@ public class ArchipelagoClient
         catch (Exception e)
         {
             Plugin.BepinLogger.LogError(e);
-            // Sometimes PickupItem() throws an error partway through. We need to make sure the
-            // pickup flag is reset to its original value no matter what.
-            if (itemObject.OnlyOne)
-            {
-                saveManager.SetData("item_" + itemObject.Index + "_picked_up", oldPickupFlag, false);
-            }
+        }
+        if (itemObject.OnlyOne)
+        {
+            saveManager.SetData("item_" + itemObject.Index + "_picked_up", oldPickupFlag, false);
         }
     }
 
