@@ -101,6 +101,15 @@ public class Plugin : BaseUnityPlugin
         harmony.PatchAll();
     }
 
+    private void Start()
+    {
+        // Load the connection info
+        var saveManager = Singleton<ReadWriteSaveManager>.Instance;
+        ArchipelagoClient.ServerData.Uri = saveManager.GetData("ap_uri", "localhost");
+        ArchipelagoClient.ServerData.SlotName = saveManager.GetData("ap_slot_name", "Player1");
+        ArchipelagoClient.ServerData.Password = saveManager.GetData("ap_password", "");
+    }
+
     private void OnGUI()
     {
         var playerManager = Singleton<PlayerManager>.Instance;
@@ -110,7 +119,7 @@ public class Plugin : BaseUnityPlugin
 
         string statusMessage;
         // show the Archipelago Version and whether we're connected or not
-        if (! playerController)
+        if (!playerController)
         {
             // The player is still on the main menu
             // Hide the cursor
@@ -154,6 +163,12 @@ public class Plugin : BaseUnityPlugin
                 !ArchipelagoClient.ServerData.SlotName.IsNullOrWhiteSpace())
             {
                 ArchipelagoClient.Connect();
+
+                // Save the connection info
+                var saveManager = Singleton<ReadWriteSaveManager>.Instance;
+                saveManager.SetData("ap_uri", ArchipelagoClient.ServerData.Uri);
+                saveManager.SetData("ap_slot_name", ArchipelagoClient.ServerData.SlotName);
+                saveManager.SetData("ap_password", ArchipelagoClient.ServerData.Password);
             }
         }
 
