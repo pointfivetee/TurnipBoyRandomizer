@@ -13,7 +13,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGUID = "com.halftime.tbcte_ap";
     public const string PluginName = "Turnip Boy Commits Tax Evasion AP";
-    public const string PluginVersion = "0.1.1";
+    public const string PluginVersion = "0.1.2";
 
     public const string ModDisplayInfo = $"{PluginName} v{PluginVersion}";
     private const string APDisplayInfo = $"Archipelago v{ArchipelagoClient.APVersion}";
