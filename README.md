@@ -9,12 +9,14 @@ This mod randomizes all inventory items and hats. Keys, heart fruits, and docume
 
 ## Installation
 - Must be using a PC version of Turnip Boy Commits Tax Evasion
-- [Download the latest version of this mod](https://github.com/pointfivetee/TurnipBoyRandomizer/releases/latest/download/turnip_boy_mod.zip).
-- Extract and copy the zip file into the root folder where Turnip Boy is located. By default it should be something like:
+- [Download the latest version of BepInEx] and follow the [installation instructions] to install it into the root folder where Turnip Boy is located. By default it should be something like:
 `C:\Program Files\Epic Games\TurnipBoyCommitsTaxEvad` or `C:\SteamLibrary\steamapps\common\Turnip Boy Commits Tax Evasion`
 	- Windows likes to place an intermediary folder when extracting zip files. Make sure that the `BepInEx` folder, `doorstop_config.ini`, and `winhttp.dll` are all located directly in the game's install folder.
+- Add a `plugins` folder inside the `BepInEx` folder (next to `core`)
+- [Download the latest version of this mod](https://github.com/pointfivetee/TurnipBoyRandomizer/releases/latest/download/turnip_boy_mod.zip).
+- Extract and copy the zip file into `plugins`. `TBCTEArchipelagoPlugin` should be directly inside `plugins`.
 - Launch the game and close it. This will finalize the installation for BepInEx.
-- Launch the game again and you should see a new bit of UI in the top-left of the screen showing `Archipelago v0.5.0 Status: Not Connected`. After starting or continuing a game, you will also see text fields to enter connection info.
+- Launch the game again and you should see a new bit of UI in the top-left of the screen showing the name and version of the mod. After starting or continuing a game, you will also see text fields to enter connection info.
 - To uninstall the mod, either remove/delete the `TBCTEArchipelagoPlugin` folder from the `plugins` folder, or rename the winhttp.dll file in the game's root directory (this will disable all mods from running).
 
 ## Generating a Multiworld
