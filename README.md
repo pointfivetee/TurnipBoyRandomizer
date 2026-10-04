@@ -9,7 +9,7 @@ This mod randomizes all inventory items and hats. Keys, heart fruits, and docume
 
 ## Installation
 - Must be using a PC version of Turnip Boy Commits Tax Evasion
-- [Download the latest version of BepInEx] and follow the [installation instructions] to install it into the root folder where Turnip Boy is located. By default it should be something like:
+- [Download the latest version of BepInEx](https://github.com/BepInEx/BepInEx/releases) and follow the [installation instructions](https://docs.bepinex.dev/articles/user_guide/installation/index.html) to install it into the root folder where Turnip Boy is located. By default it should be something like:
 `C:\Program Files\Epic Games\TurnipBoyCommitsTaxEvad` or `C:\SteamLibrary\steamapps\common\Turnip Boy Commits Tax Evasion`
 	- Windows likes to place an intermediary folder when extracting zip files. Make sure that the `BepInEx` folder, `doorstop_config.ini`, and `winhttp.dll` are all located directly in the game's install folder.
 - Add a `plugins` folder inside the `BepInEx` folder (next to `core`)
