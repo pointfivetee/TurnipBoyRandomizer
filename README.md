@@ -13,7 +13,7 @@ This mod randomizes all inventory items and hats. Keys, heart fruits, and docume
 `C:\Program Files\Epic Games\TurnipBoyCommitsTaxEvad` or `C:\SteamLibrary\steamapps\common\Turnip Boy Commits Tax Evasion`
 	- Windows likes to place an intermediary folder when extracting zip files. Make sure that the `BepInEx` folder, `doorstop_config.ini`, and `winhttp.dll` are all located directly in the game's install folder.
 - Add a `plugins` folder inside the `BepInEx` folder (next to `core`)
-- [Download the latest version of this mod](https://github.com/pointfivetee/TurnipBoyRandomizer/releases/latest/download/turnip_boy_mod.zip).
+- [Download the latest version of this mod](https://github.com/pointfivetee/TurnipBoyRandomizer/releases/download/v0.1.4/TBCTEArchipelagoPlugin.zip).
 - Extract and copy the zip file into `plugins`. `TBCTEArchipelagoPlugin` should be directly inside `plugins`.
 - Launch the game and close it. This will finalize the installation for BepInEx.
 - Launch the game again and you should see a new bit of UI in the top-left of the screen showing the name and version of the mod. After starting or continuing a game, you will also see text fields to enter connection info.
